@@ -1,9 +1,15 @@
 package gotools
 
-import "time"
+import (
+	"testing"
+	"time"
+)
 
-const CommonTimeStr string = "2006-1-2 15:4:5"
-
-func CommonFormat(t time.Time) string {
-	return t.Format(CommonTimeStr)
+func TestCommonTimeFormat(t *testing.T) {
+	result := "2020-05-28 15:24:00"
+	date := time.Date(2020, 5, 28, 15, 24, 0, 0, time.Local)
+	if result != CommonTimeFormat(date) {
+		print(CommonTimeFormat(date))
+		t.Fatal("CommonTimeFormat Error")
+	}
 }
