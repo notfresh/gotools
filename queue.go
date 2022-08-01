@@ -10,6 +10,7 @@ func NewQueue() *Queue {
 	list := make([]interface{}, 0)
 	return &Queue{list: list}
 }
+
 func (q *Queue) Push(data interface{}) {
 	q.list = append(q.list, data)
 }
@@ -22,6 +23,7 @@ func (q *Queue) Pop() interface{} {
 	q.list = q.list[1:]
 	return res
 }
+
 func (q *Queue) Print() {
 	for _, val := range q.list {
 		fmt.Println(val)

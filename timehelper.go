@@ -12,3 +12,11 @@ func CommonTimeParse(s string) (t time.Time, e error) {
 	t, e = time.Parse(CommonTimeStr, s)
 	return
 }
+
+
+func TimeNearEqual(time1 time.Time, time2 time.Time) bool {
+	if time1.After(time2) {
+		return time1.Sub(time2) <= time.Millisecond
+	}
+	return time2.Sub(time1) <= time.Millisecond
+}

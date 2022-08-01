@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	zx "github.com/notfresh/gotools"
+	//"testing"
 )
 
 func TestStack() {
@@ -24,7 +25,19 @@ func TestQueue() {
 	q.Print()
 }
 
+func TestRingQueue() {
+	q := zx.NewRingQueue(3 + 1)
+	q.Push(1)
+	q.Push(2)
+	q.Push(3)
+	q.Push(4)
+	q.Push(5)
+	q.Push(8)
+	q.Print()
+}
+
 func main() {
-	TestStack()
-	TestQueue()
+	//TestStack()
+	//TestQueue()
+	TestRingQueue()
 }
