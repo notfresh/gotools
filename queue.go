@@ -24,6 +24,10 @@ func (q *Queue) Pop() interface{} {
 	return res
 }
 
+func (q *Queue) Size() int {
+	return len(q.list)
+}
+
 func (q *Queue) Print() {
 	for _, val := range q.list {
 		fmt.Println(val)
