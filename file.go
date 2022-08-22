@@ -44,6 +44,13 @@ func (jl *JsonLog) Close() {
 	jl.file.Close()
 }
 
+//func CreateOrOpenFile(path string) (*os.File, error){
+//
+//	if _, flag := IsExists(path) ; flag && IsFile(path) {
+//		return os.OpenFile(path, os.O_APPEND, 0666)
+//	}
+//}
+
 // 写入文件,文件不存在则创建,如在则追加内容
 func WriteFile(path string, str string) {
 	_, b := IsFile(path)

@@ -6,9 +6,14 @@ import (
 )
 
 const CommonTimeStr string = "2006-01-02 15:04:05"
+const DenseTimeStr string = "20060102150405"
 
 func CommonTimeFormat(t time.Time) string {
 	return t.Format(CommonTimeStr)
+}
+
+func DenseTimeFormat(t time.Time) string {
+	return t.Format(DenseTimeStr)
 }
 
 func CommonTimeParse(s string) (t time.Time, e error) {
