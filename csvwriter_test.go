@@ -46,6 +46,7 @@ func TestCSVWriter(t *testing.T) {
 		time.Sleep(time.Second)
 		i++
 	}
+	jl.writeStr("abcd")
 
 	jl.write(zx)
 	jl.Close()
