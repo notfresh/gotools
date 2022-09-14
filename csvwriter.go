@@ -56,6 +56,28 @@ type CSVReader struct {
 	file *os.File
 }
 
+func NewCSVReader(logFileName string) (*CSVReader, error) {
+	_, err := os.Stat(logFileName)
+	flag := err == nil || os.IsExist(err)
+	var file *os.File
+	if flag {
+		//打开文件，
+		fmt.Println("File Exists")
+		file, _ = os.OpenFile(logFileName, os.O_RDONLY, 0666)
+	} else {
+		fmt.Println("File Created")
+		//新建文件
+		file, err = os.Create(logFileName)
+		if err != nil {
+			fmt.Println(err)
+			return nil, err
+		}
+	}
+	jl := &CSVReader{}
+	jl.file = file
+	return jl, nil
+}
+
 func (jl *CSVReader) Read() []int {
 	reader := bufio.NewReader(jl.file)
 	ret := make([]int, 0)
