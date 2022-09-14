@@ -84,7 +84,7 @@ func (jl *CSVReader) Read() []int {
 	for {
 		buf, err := reader.ReadString('\n')
 		buf = strings.Trim(buf, "\n")
-		fmt.Println(buf)
+		//fmt.Println(buf)
 		if err == io.EOF {
 			break
 		}
