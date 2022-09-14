@@ -2,6 +2,7 @@ package gotools
 
 import (
 	"fmt"
+	"strconv"
 	"testing"
 	"time"
 )
@@ -49,5 +50,21 @@ func TestCSVWriter(t *testing.T) {
 	jl.writeStr("abcd")
 
 	jl.write(zx)
+	jl.Close()
+}
+
+func TestCSVWriterRandomNumber(t *testing.T) {
+	jl, _ := NewCSVWriter("numbers.csv")
+	i := 1
+	for {
+		if i > 120 {
+			break
+		}
+		num := int(RandomBetween(50, 150))
+		numStr := strconv.Itoa(num)
+		jl.writeStr(numStr)
+		time.Sleep(time.Millisecond * 10)
+		i++
+	}
 	jl.Close()
 }
