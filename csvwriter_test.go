@@ -37,7 +37,16 @@ func TestCSVWriter(t *testing.T) {
 		Age:  18,
 		S:    *s2,
 	}
-	jl.writeStr("Name, Age")
+	i := 1
+	for {
+		if i > 100 {
+			break
+		}
+		jl.write(zx)
+		time.Sleep(time.Second)
+		i++
+	}
+
 	jl.write(zx)
 	jl.Close()
 }
