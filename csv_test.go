@@ -54,7 +54,7 @@ func TestCSVWriter(t *testing.T) {
 }
 
 func TestCSVWriterRandomNumber(t *testing.T) {
-	jl, _ := NewCSVWriter("numbers.csv")
+	jl, _ := NewCSVWriter("numbers3.csv")
 	i := 1
 	for {
 		if i > 120 {
